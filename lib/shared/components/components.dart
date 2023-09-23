@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment/shared/style/colors.dart';
 
 Widget defaultButton({
   double width = double.infinity,
@@ -10,7 +11,8 @@ Widget defaultButton({
 }) {
   return Container(
     width: width,
-    height: 40,
+    height: 50,
+    margin: const EdgeInsets.symmetric(vertical: 10.0),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(radius),
       color: background,
@@ -40,26 +42,33 @@ Widget defaultFormField({
   bool isClickable = true,
   int? lines,
 }) {
-  return TextFormField(
-    controller: controller,
-    keyboardType: type,
-    obscureText: isPassword,
-    enabled: isClickable,
-    onFieldSubmitted: onSubmit,
-    onChanged: onChange,
-    onTap: onTap,
-    maxLines: lines,
-    validator: validate,
-    decoration: InputDecoration(
-      labelText: label,
-      prefixIcon: Icon(prefix),
-      suffixIcon: suffix != null
-          ? IconButton(
-              onPressed: suffixPressed,
-              icon: Icon(suffix),
-            )
-          : null,
-      border: const OutlineInputBorder(),
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    child: TextFormField(
+      controller: controller,
+      keyboardType: type,
+      obscureText: isPassword,
+      enabled: isClickable,
+      onFieldSubmitted: onSubmit,
+      onChanged: onChange,
+      onTap: onTap,
+      maxLines: lines,
+      validator: validate,
+      decoration: InputDecoration(
+        labelText: label,
+        prefixIcon: Icon(prefix),
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: suffixPressed,
+                icon: Icon(suffix),
+              )
+            : null,
+        hintStyle: TextStyle(color: defColor),
+        border:
+            const OutlineInputBorder(borderSide: BorderSide(color: defColor)),
+        focusedBorder:
+            const OutlineInputBorder(borderSide: BorderSide(color: defColor)),
+      ),
     ),
   );
 }
