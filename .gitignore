@@ -44,4 +44,4 @@ app.*.map.json
 /android/app/release
 
 # api key
-lib/security_api_key.dart
+#lib/security_api_key.dart
