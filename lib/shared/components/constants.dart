@@ -1,9 +1,9 @@
-String firstToken = "";
+String paymobToken = "";
 
-String orderId = "";
+String paymobOrderId = "";
 
-String finalTokenCard = "";
+String paymobFinalTokenCard = "";
 
-String finalTokenKiosk = "";
+String paymobFinalTokenKiosk = "";
 
 String refCode = "";

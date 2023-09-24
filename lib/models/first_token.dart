@@ -113,8 +113,8 @@ class Profile {
   final dynamic dayOfTheMonth;
   final bool? allowTransactionNotifications;
   final bool? allowTransferNotifications;
-  final int? sallefnyAmountWhole;
-  final int? sallefnyFeesWhole;
+  final double? sallefnyAmountWhole;
+  final double? sallefnyFeesWhole;
   final dynamic paymobAppFirstLogin;
   final dynamic paymobAppLastActivity;
   final bool? payoutEnabled;
