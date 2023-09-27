@@ -126,10 +126,10 @@ class PaymentCubit extends Cubit<PaymentState> {
       if (kDebugMode) {
         print("paymobFinalToken : $paymobFinalTokenCard");
       }
-      emit(PaymentFinalTokenSuccessState());
       if (integrationId == integrationIdKiosk) {
         getRefCode();
       }
+      emit(PaymentFinalTokenSuccessState());
     }).catchError((error) {
       emit(PaymentFinalTokenErrorState(error: error.toString()));
       print(error.toString());
@@ -154,5 +154,10 @@ class PaymentCubit extends Cubit<PaymentState> {
       emit(PaymentRefCodeErrorState(error: error.toString()));
       print(error.toString());
     });
+  }
+
+  void clearToken() {
+    finalToken = null;
+    paymobFinalTokenCard = '';
   }
 }

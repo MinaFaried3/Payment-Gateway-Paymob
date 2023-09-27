@@ -28,7 +28,11 @@ class ToggleScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: BlocConsumer<PaymentCubit, PaymentState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is PaymentFinalTokenSuccessState) {
+            navigateTo(context, const CardScreen());
+          }
+        },
         builder: (context, state) {
           return SafeArea(
             child: Column(
@@ -44,7 +48,6 @@ class ToggleScreen extends StatelessWidget {
                         email: email,
                         phone: phone,
                         integrationId: integrationIdCard);
-                    navigateTo(context, const CardScreen());
                   },
                 ),
                 getToggleItem(
