@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment/modules/payment/card.dart';
+import 'package:payment/modules/payment/kiosk.dart';
 import 'package:payment/modules/payment/payment_cubit.dart';
 import 'package:payment/security_api_key.dart';
+import 'package:payment/shared/components/components.dart';
 import 'package:payment/shared/style/colors.dart';
 
 class ToggleScreen extends StatelessWidget {
@@ -41,6 +44,7 @@ class ToggleScreen extends StatelessWidget {
                         email: email,
                         phone: phone,
                         integrationId: integrationIdCard);
+                    navigateTo(context, const CardScreen());
                   },
                 ),
                 getToggleItem(
@@ -54,6 +58,7 @@ class ToggleScreen extends StatelessWidget {
                         email: email,
                         phone: phone,
                         integrationId: integrationIdKiosk);
+                    navigateTo(context, const KioskScreen());
                   },
                 ),
               ],
