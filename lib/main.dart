@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment/modules/payment/payment_cubit.dart';
 import 'package:payment/modules/register/register.dart';
 import 'package:payment/shared/network/dio.dart';
 import 'package:payment/shared/style/colors.dart';
@@ -14,13 +16,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: defColor),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => PaymentCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: defColor),
+          useMaterial3: true,
+        ),
+        home: RegisterScreen(),
       ),
-      home: RegisterScreen(),
     );
   }
 }
